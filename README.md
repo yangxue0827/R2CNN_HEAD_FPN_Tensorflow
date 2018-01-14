@@ -1,4 +1,4 @@
-# R2CNN: Rotational Region CNN for Orientation Robust Scene Detection with Head Direction
+# R2CNN_HEAD: Rotational Region CNN for Orientation Robust Scene Detection with Head Direction
 
 A Tensorflow implementation of FPN or R2CNN detection framework based on [FPN](https://github.com/yangxue0827/FPN_Tensorflow).  
 You can refer to the papers [R2CNN Rotational Region CNN for Orientation Robust Scene Text Detection](https://arxiv.org/abs/1706.09579) or [Feature Pyramid Networks for Object Detection](https://arxiv.org/abs/1612.03144)    
@@ -17,10 +17,9 @@ You can also use docker environment, command: docker push yangxue2docker/tensorf
   ```     
 
 # Make tfrecord   
-The image name is best in English.    
-Image size w = 1000, h = 600.    
+The image name is best in English.       
 The data is VOC format, reference [here](sample.xml)     
-data path format  ($FPN_ROOT/data/io/divide_data.py)    
+data path format  ($R2CNN_HEAD_ROOT/data/io/divide_data.py)    
 VOCdevkit  
 >VOCdevkit_train  
 >>Annotation  
@@ -32,21 +31,22 @@ VOCdevkit
 
 Clone the repository    
   ```Shell    
-  cd $R2CNN_ROOT/data/io/  
+  cd $R2CNN_HEAD_ROOT/data/io/  
   python convert_data_to_tfrecord.py --VOC_dir='***/VOCdevkit/VOCdevkit_train/' --save_name='train' --img_format='.jpg' --dataset='ship'
        
   ``` 
 # Demo   
-1、Unzip the weight $R2CNN_ROOT/output/res101_trained_weights/*.rar    
-2、put images in $R2CNN_ROOT/tools/inference_image   
-3、Configure parameters in $R2CNN_ROOT/libs/configs/cfgs.py and modify the project's root directory    
+1、Unzip the weight $R2CNN_HEAD_ROOT/output/res101_trained_weights/*.rar    
+2、put images in $R2CNN_HEAD_ROOT/tools/inference_image   
+3、Configure parameters in $R2CNN_HEAD_ROOT/libs/configs/cfgs.py and modify the project's root directory    
 4、     
   ```Shell    
-  cd $R2CNN_ROOT/tools      
+  cd $R2CNN_HEAD_ROOT/tools      
   ```    
 5、image slice         
   ```Shell    
   python inference.py   
+  ```   
 
 6、big image      
   ```Shell    
@@ -55,11 +55,11 @@ Clone the repository
   ```   
 
 # Train   
-1、Modify $R2CNN_ROOT/libs/lable_name_dict/***_dict.py, corresponding to the number of categories in the configuration file    
-2、download pretrain weight([resnet_v1_101_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_101_2016_08_28.tar.gz) or [resnet_v1_50_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz)) from [here](https://github.com/yangxue0827/models/tree/master/slim), then extract to folder $R2CNN_ROOT/data/pretrained_weights    
+1、Modify $R2CNN_HEAD_ROOT/libs/lable_name_dict/***_dict.py, corresponding to the number of categories in the configuration file    
+2、download pretrain weight([resnet_v1_101_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_101_2016_08_28.tar.gz) or [resnet_v1_50_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz)) from [here](https://github.com/yangxue0827/models/tree/master/slim), then extract to folder $R2CNN_HEAD_ROOT/data/pretrained_weights    
 3、  
   ```Shell    
-  cd $R2CNN_ROOT/tools      
+  cd $R2CNN_HEAD_ROOT/tools      
   ``` 
 4、Choose a model([FPN](https://github.com/yangxue0827/FPN_Tensorflow)  and R2CNN)           
   ```Shell    
@@ -68,19 +68,19 @@ Clone the repository
 
 # Test tfrecord     
   ```Shell    
-  cd $R2CNN_ROOT/tools   
+  cd $R2CNN_HEAD_ROOT/tools   
   python test.py      
   ```    
 
 # eval   
   ```Shell    
-  cd $R2CNN_ROOT/tools   
+  cd $R2CNN_HEAD_ROOT/tools   
   python eval.py    
   ```  
 
 # Summary    
   ```Shell    
-  tensorboard --logdir=$R2CNN_ROOT/output/res101_summary/ 
+  tensorboard --logdir=$R2CNN_HEAD_ROOT/output/res101_summary/ 
   ```     
 ![01](output/res101_summary/fast_rcnn_loss.bmp) 
 ![02](output/res101_summary/rpn_loss.bmp) 
