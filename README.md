@@ -59,12 +59,9 @@ Clone the repository
 2、download pretrain weight([resnet_v1_101_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_101_2016_08_28.tar.gz) or [resnet_v1_50_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz)) from [here](https://github.com/yangxue0827/models/tree/master/slim), then extract to folder $R2CNN_HEAD_ROOT/data/pretrained_weights    
 3、  
   ```Shell    
-  cd $R2CNN_HEAD_ROOT/tools      
-  ``` 
-4、Choose a model([FPN](https://github.com/yangxue0827/FPN_Tensorflow)  and R2CNN)           
-  ```Shell    
-  python train.py   
-  ```      
+  cd $R2CNN_HEAD_ROOT/tools  
+  python train.py      
+  ```   
 
 # Test tfrecord     
   ```Shell    
