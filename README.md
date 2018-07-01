@@ -1,6 +1,6 @@
 # R2CNN_HEAD (The paper is under review.): Position Detection and Direction Prediction for Arbitrary-Oriented Ships via Multiscale Rotation Region Convolutional Neural Network    
 
-# Some popular new re-implementation detectors (Faster-RCNN, FPN, R2CNN, RRPN, R-DFPN etc) will be upload in https://github.com/DetectionTeamUCAS soon and be evaluated in common data sets (VOC pascal, icdar). Stay tuned!     
+## Recommended improved code： https://github.com/DetectionTeamUCAS     
       
 A Tensorflow implementation of FPN or R2CNN detection framework based on [FPN](https://github.com/yangxue0827/FPN_Tensorflow).  
 You can refer to the papers [R2CNN Rotational Region CNN for Orientation Robust Scene Text Detection](https://arxiv.org/abs/1706.09579) or [Feature Pyramid Networks for Object Detection](https://arxiv.org/abs/1612.03144)    
@@ -9,7 +9,7 @@ Other rotation detection method reference [R-DFPN](https://github.com/yangxue082
 If useful to you, please star to support my work. Thanks.  
   
 
-# Citing [R-DFPN](http://www.mdpi.com/2072-4292/10/1/132)
+## Citing [R-DFPN](http://www.mdpi.com/2072-4292/10/1/132)
 
 If you find R-DFPN useful in your research, please consider citing:
 
@@ -20,29 +20,29 @@ If you find R-DFPN useful in your research, please consider citing:
         Year = {2018}
     } 
 
-# Configuration Environment
+## Configuration Environment
 ubuntu(Encoding problems may occur on windows) + python2 + tensorflow1.2 + cv2 + cuda8.0 + GeForce GTX 1080     
 If you want to use cpu, you need to modify the parameters of NMS and IOU functions use_gpu = False  in cfgs.py     
 You can also use docker environment, command: docker pull yangxue2docker/tensorflow3_gpu_cv2_sshd:v1.0    
 
-# Installation      
+## Installation      
   Clone the repository    
   ```Shell    
   git clone https://github.com/yangxue0827/R2CNN_HEAD_FPN_Tensorflow.git    
   ```     
 
-# Make tfrecord   
-The image name is best in English.       
+## Make tfrecord   
 The data is VOC format, reference [here](sample.xml)     
 data path format  ($R2CNN_HEAD_ROOT/data/io/divide_data.py)    
-VOCdevkit  
->VOCdevkit_train  
->>Annotation  
->>JPEGImages   
-
->VOCdevkit_test   
->>Annotation   
->>JPEGImages   
+```
+├── VOCdevkit
+│   ├── VOCdevkit_train
+│       ├── Annotation
+│       ├── JPEGImages
+│    ├── VOCdevkit_test
+│       ├── Annotation
+│       ├── JPEGImages
+```     
 
 Clone the repository    
   ```Shell    
@@ -50,7 +50,7 @@ Clone the repository
   python convert_data_to_tfrecord.py --VOC_dir='***/VOCdevkit/VOCdevkit_train/' --save_name='train' --img_format='.jpg' --dataset='ship'
        
   ``` 
-# Demo   
+## Demo   
 1、Unzip the weight $R2CNN_HEAD_ROOT/output/res101_trained_weights/*.rar    
 2、put images in $R2CNN_HEAD_ROOT/tools/inference_image   
 3、Configure parameters in $R2CNN_HEAD_ROOT/libs/configs/cfgs.py and modify the project's root directory    
@@ -69,7 +69,7 @@ Clone the repository
   python demo.py --src_folder=.\demo_src --des_folder=.\demo_des         
   ```   
 
-# Train   
+## Train   
 1、Modify $R2CNN_HEAD_ROOT/libs/lable_name_dict/***_dict.py, corresponding to the number of categories in the configuration file    
 2、download pretrain weight([resnet_v1_101_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_101_2016_08_28.tar.gz) or [resnet_v1_50_2016_08_28.tar.gz](http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz)) from [here](https://github.com/yangxue0827/models/tree/master/slim), then extract to folder $R2CNN_HEAD_ROOT/data/pretrained_weights    
 3、  
@@ -78,19 +78,19 @@ Clone the repository
   python train.py      
   ```   
 
-# Test tfrecord     
+## Test tfrecord     
   ```Shell    
   cd $R2CNN_HEAD_ROOT/tools   
   python test.py      
   ```    
 
-# eval   
+## eval(Not recommended, Please refer [here](https://github.com/DetectionTeamUCAS)  
   ```Shell    
   cd $R2CNN_HEAD_ROOT/tools   
   python eval.py    
   ```  
 
-# Summary    
+## Summary    
   ```Shell    
   tensorboard --logdir=$R2CNN_HEAD_ROOT/output/res101_summary/ 
   ```     
@@ -98,10 +98,10 @@ Clone the repository
 ![02](output/res101_summary/rpn_loss.bmp) 
 ![03](output/res101_summary/total_loss.bmp) 
 
-# Graph
+## Graph
 ![04](graph.png) 
 
-# Test results   
+## Test results   
 ![11](tools/test_result/01_horizontal_gt.jpg)   
 ![12](tools/test_result/01_horizontal_fpn.jpg)   
      
