@@ -13,7 +13,7 @@ TEST_SAVE_PATH = ROO_PATH + '/tools/test_result'
 INFERENCE_IMAGE_PATH = ROO_PATH + '/tools/inference_image'
 INFERENCE_SAVE_PATH = ROO_PATH + '/tools/inference_result'
 
-NET_NAME = 'resnet_v1_101'
+NET_NAME = 'resnet_v1_101' 
 VERSION = 'v1_ship_head'
 CLASS_NUM = 1
 LEVEL = ['P2', 'P3', 'P4', 'P5', 'P6']
