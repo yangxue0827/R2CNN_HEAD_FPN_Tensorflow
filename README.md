@@ -9,16 +9,29 @@ Other rotation detection method reference [R-DFPN](https://github.com/yangxue082
 If useful to you, please star to support my work. Thanks.  
   
 
-## Citing [R-DFPN](http://www.mdpi.com/2072-4292/10/1/132)
+## Citation
+Some relevant achievements based on this code.     
 
-If you find R-DFPN useful in your research, please consider citing:
-
-    @article{yangxue_r-dfpn:http://www.mdpi.com/2072-4292/10/1/132
-        Author = {Xue Yang, Hao Sun, Kun Fu, Jirui Yang, Xian Sun, Menglong Yan and Zhi Guo},
-        Title = {{R-DFPN}: Automatic Ship Detection in Remote Sensing Images from Google Earth of Complex Scenes Based on Multiscale Rotation Dense Feature Pyramid Networks},
-        Journal = {Published in remote sensing},
-        Year = {2018}
-    } 
+    @article{[yang2018position](https://ieeexplore.ieee.org/document/8464244),
+		title={Position Detection and Direction Prediction for Arbitrary-Oriented Ships via Multitask Rotation Region Convolutional Neural Network},
+		author={Yang, Xue and Sun, Hao and Sun, Xian and  Yan, Menglong and Guo, Zhi and Fu, Kun},
+		journal={IEEE Access},
+		volume={6},
+		pages={50839-50849},
+		year={2018},
+		publisher={IEEE}
+	}
+    
+    @article{[yang2018r-dfpn](http://www.mdpi.com/2072-4292/10/1/132),
+		title={Automatic ship detection in remote sensing images from google earth of complex scenes based on multiscale rotation dense feature pyramid networks},
+		author={Yang, Xue and Sun, Hao and Fu, Kun and Yang, Jirui and Sun, Xian and Yan, Menglong and Guo, Zhi},
+		journal={Remote Sensing},
+		volume={10},
+		number={1},
+		pages={132},
+		year={2018},
+		publisher={Multidisciplinary Digital Publishing Institute}
+	}
 
 ## Configuration Environment
 ubuntu(Encoding problems may occur on windows) + python2 + tensorflow1.2 + cv2 + cuda8.0 + GeForce GTX 1080     
@@ -50,6 +63,13 @@ Clone the repository
   python convert_data_to_tfrecord.py --VOC_dir='***/VOCdevkit/VOCdevkit_train/' --save_name='train' --img_format='.jpg' --dataset='ship'
        
   ``` 
+
+## Compile
+```  
+cd $PATH_ROOT/libs/box_utils/
+python setup.py build_ext --inplace
+```
+
 ## Demo   
 1、Unzip the weight $R2CNN_HEAD_ROOT/output/res101_trained_weights/*.rar    
 2、put images in $R2CNN_HEAD_ROOT/tools/inference_image   
@@ -84,7 +104,7 @@ Clone the repository
   python test.py      
   ```    
 
-## eval(Not recommended, Please refer [here](https://github.com/DetectionTeamUCAS)  
+## eval(Not recommended, Please refer [here](https://github.com/DetectionTeamUCAS))  
   ```Shell    
   cd $R2CNN_HEAD_ROOT/tools   
   python eval.py    
