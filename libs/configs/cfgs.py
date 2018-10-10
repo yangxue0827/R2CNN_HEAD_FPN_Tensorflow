@@ -6,12 +6,15 @@ import os
 ROO_PATH = os.path.abspath('/yangxue/FPN_v21')
 
 # pretrain weights path
+MODEL_PATH = ROO_PATH + '/output/model'
+SUMMARY_PATH = ROO_PATH + '/output/summary'
+
 TEST_SAVE_PATH = ROO_PATH + '/tools/test_result'
 INFERENCE_IMAGE_PATH = ROO_PATH + '/tools/inference_image'
 INFERENCE_SAVE_PATH = ROO_PATH + '/tools/inference_result'
 
 NET_NAME = 'resnet_v1_101'
-VERSION = 'v2_ship_head'
+VERSION = 'v1_ship_head'
 CLASS_NUM = 1
 LEVEL = ['P2', 'P3', 'P4', 'P5', 'P6']
 BASE_ANCHOR_SIZE_LIST = [32, 64, 128, 256, 512]
@@ -24,7 +27,7 @@ SHORT_SIDE_LEN = 600
 DATASET_NAME = 'ship'
 
 BATCH_SIZE = 1
-WEIGHT_DECAY = {'resnet_v1_50': 0.0001, 'resnet_v1_101': 0.0001}
+WEIGHT_DECAY = {'vggnet16': 0.0005, 'resnet_v1_50': 0.0001, 'resnet_v1_101': 0.0001}
 EPSILON = 1e-5
 MOMENTUM = 0.9
 MAX_ITERATION = 40000
@@ -52,5 +55,5 @@ FAST_RCNN_NMS_IOU_THRESHOLD = 0.15
 FAST_RCNN_NMS_MAX_BOXES_PER_CLASS = 100
 FINAL_SCORE_THRESHOLD = 0.8
 FAST_RCNN_IOU_POSITIVE_THRESHOLD = 0.5
-FAST_RCNN_MINIBATCH_SIZE = 512
+FAST_RCNN_MINIBATCH_SIZE = 128
 FAST_RCNN_POSITIVE_RATE = 0.5
